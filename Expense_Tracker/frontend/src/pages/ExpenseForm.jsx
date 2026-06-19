@@ -7,7 +7,7 @@ const CATEGORIES = ['Food', 'Transport', 'Shopping', 'Entertainment', 'Bills', '
 export default function ExpenseForm() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ title: '', amount: '', category: 'Food', date: '', description: '' });
+  const [form, setForm] = useState({ title: '', amount: '', category: 'Shopping', date: '', description: '' });
   const [error, setError] = useState('');
   const isEdit = Boolean(id);
 
@@ -30,7 +30,7 @@ export default function ExpenseForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const payload = { ...form, amount: Number(form.amount) };
+      const payload = { ...form, amount:Number(form.amount) };
       if (isEdit) {
         await axios.put(`/api/expenses/${id}`, payload);
       } else {
