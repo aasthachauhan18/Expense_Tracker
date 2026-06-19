@@ -1,0 +1,26 @@
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EACCES: permission denied C:\xampp\php;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Aastha Chauhan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.13;C:\Users\Aastha Chauhan\AppData\Local\Programs\Python\Launcher\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Aastha Chauhan\Anaconda2;C:\Users\Aastha Chauhan\Anaconda2\Scripts;C:\Users\Aastha Chauhan\Anaconda2\Library\bin;C:\Users\Aastha Chauhan\AppData\Local\Microsoft\WindowsApps;C:\Users\Aastha Chauhan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Aastha Chauhan\AppData\Roaming\npm
+    at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2119:5)
+    at Function.listen (C:\Users\Aastha Chauhan\OneDrive\Desktop\git\Expense_Tracker\Expense_Tracker\Backend\node_modules\express\lib\application.js:605:24)
+    at Object.<anonymous> (C:\Users\Aastha Chauhan\OneDrive\Desktop\git\Expense_Tracker\Expense_Tracker\Backend\server.js:22:5)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EACCES',
+  errno: -4092,
+  syscall: 'listen',
+  address: 'C:\\xampp\\php;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Aastha Chauhan\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Python 3.13;C:\\Users\\Aastha Chauhan\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\Aastha Chauhan\\Anaconda2;C:\\Users\\Aastha Chauhan\\Anaconda2\\Scripts;C:\\Users\\Aastha Chauhan\\Anaconda2\\Library\\bin;C:\\Users\\Aastha Chauhan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Aastha Chauhan\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Aastha Chauhan\\AppData\\Roaming\\npm',
+  port: -1
+}
+
+Node.js v22.21.1

@@ -1,6 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
@@ -8,12 +16,8 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
     const saved = localStorage.getItem('user');
-    if (token && saved) {
-      setUser(JSON.parse(saved));
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    }
+    if (saved) setUser(JSON.parse(saved));
     setLoading(false);
   }, []);
 
@@ -21,7 +25,6 @@ export function AuthProvider({ children }) {
     const { data } = await axios.post('/api/auth/register', { name, email, password });
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
-    axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
     setUser(data.user);
   };
 
@@ -29,14 +32,12 @@ export function AuthProvider({ children }) {
     const { data } = await axios.post('/api/auth/login', { email, password });
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
-    axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
     setUser(data.user);
   };
 
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    delete axios.defaults.headers.common['Authorization'];
     setUser(null);
   };
 
