@@ -70,6 +70,7 @@ export default function ExpenseForm() {
           <textarea className="form-control" rows="3" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
         </div>
         <button type="submit" className="btn btn-primary">{isEdit ? 'Update' : 'Add'} Expense</button>
+        {/* <button type='submit' className='btn btn-primary'>{isEdit ? 'update' :'Add'}Expense</button> */}
       </form>
     </div>
   );
